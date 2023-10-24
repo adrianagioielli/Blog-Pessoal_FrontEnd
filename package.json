@@ -7,7 +7,10 @@
     "start": "react-scripts start",
     "build": "Cl=false && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.0.13",
