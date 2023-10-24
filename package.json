@@ -9,6 +9,12 @@
 	"test" : "react-scripts test",
 	"eject" : "react-scripts eject"
   },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "@phosphor-icons/react": "^2.0.13",
     "axios": "^1.5.1",
