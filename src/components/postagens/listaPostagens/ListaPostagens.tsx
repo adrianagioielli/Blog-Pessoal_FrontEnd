@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import  { useContext, useEffect, useState } from 'react';
 import { Dna } from 'react-loader-spinner';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
@@ -7,11 +7,11 @@ import { buscar } from '../../../services/Service';
 import CardPostagem from '../cardPostagem/CardPostagem';
 import { toastAlerta } from '../../../utils/toastAlerta';
 
-
 function ListaPostagens() {
-
   const [postagens, setPostagens] = useState<Postagem[]>([]);
-  let navigate = useNavigate();
+
+  const navigate = useNavigate();
+
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
@@ -40,7 +40,7 @@ function ListaPostagens() {
   useEffect(() => {
     buscarPostagens();
   }, [postagens.length]);
- 
+
   return (
     <>
       {postagens.length === 0 && (
@@ -54,7 +54,8 @@ function ListaPostagens() {
         />
       )}
       <div className='container mx-auto my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-        {postagens.map((postagem) => (<CardPostagem key={postagem.id} post={postagem} />
+        {postagens.map((postagem) => (
+          <CardPostagem key={postagem.id} post={postagem} />
         ))}
       </div>
     </>
