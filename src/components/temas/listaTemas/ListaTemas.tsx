@@ -1,4 +1,4 @@
-import  { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Dna } from 'react-loader-spinner';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
@@ -8,10 +8,9 @@ import CardTemas from '../cardTemas/CardTemas';
 import { toastAlerta } from '../../../utils/toastAlerta';
 
 function ListaTemas() {
+
   const [temas, setTemas] = useState<Tema[]>([]);
-
- const navigate = useNavigate();
-
+  let navigate = useNavigate();
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
@@ -21,7 +20,7 @@ function ListaTemas() {
         headers: { Authorization: token },
       });
     } catch (error: any) {
-      if(error.toString().includes('403')) {
+      if (error.toString().includes('403')) {
         toastAlerta('O token expirou, favor logar novamente', 'info')
         handleLogout()
       }
