@@ -1,21 +1,20 @@
-import React, { useContext, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../contexts/AuthContext'
-import loginLogo from '../../assets/login.png'
+import loginLogo from '../../assets/login.jpg'
 import { toastAlerta } from '../../utils/toastAlerta'
-
 function Perfil() {
-  
-  let navigate = useNavigate()
+  const navigate = useNavigate()
+
   const { usuario } = useContext(AuthContext)
 
-    useEffect(() => {
-        if (usuario.token === "") {
-          toastAlerta('Dados inconsistentes. Verifique as informações de cadastro.', 'erro')
-          navigate("/login")
-        }
-    }, [usuario.token])
-    
+  useEffect(() => {
+    if (usuario.token === "") {
+      toastAlerta('Dados inconsistentes. Verifique as informações de cadastro.', 'erro')
+      navigate("/login")
+    }
+  }, [usuario.token])
+
   return (
     <div className='container mx-auto mt-4 rounded-2xl overflow-hidden'>
       <img className='w-full h-72 object-cover border-b-8 border-white' src={loginLogo} alt="Capa do Perfil" />
